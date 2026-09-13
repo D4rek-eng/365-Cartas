@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>365 cartas para Mi Mai</title>
+  <meta name="description" content="Un universo de 365 cartas para Mai, con cielo rosa, nubes y mucho cariño." />
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Fredoka:wght@400;500;600&family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css?v=intro1" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <canvas id="sparkles"></canvas>
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+    <div class="cloud c4"></div>
+    <div class="float-hearts" id="floatHearts"></div>
+  </div>
+
+  <div class="mascots" aria-hidden="true">
+    <div class="mascot kitty" title="Gatita de moño">
+      <svg viewBox="0 0 120 130" class="mascot-svg">
+        <ellipse cx="60" cy="118" rx="28" ry="8" fill="rgba(255,105,160,.18)"/>
+        <path d="M28 58c0-22 14-40 32-40s32 18 32 40v22c0 20-14 34-32 34s-32-14-32-34V58z" fill="#fff"/>
+        <path d="M30 42l-10-22 22 10z" fill="#fff"/>
+        <path d="M90 42l10-22-22 10z" fill="#fff"/>
+        <path d="M22 28l8 16" fill="#ff8fab"/>
+        <path d="M32 24c-2 6 2 10 8 8" fill="#ff8fab"/>
+        <circle cx="60" cy="22" r="10" fill="#ff6b9d"/>
+        <path d="M48 22h24" stroke="#e11d48" stroke-width="5" stroke-linecap="round"/>
+        <path d="M60 12v8" stroke="#fff" stroke-width="2"/>
+        <circle cx="48" cy="62" r="4.2" fill="#3a2430"/>
+        <circle cx="72" cy="62" r="4.2" fill="#3a2430"/>
+        <circle cx="49.5" cy="60.5" r="1.3" fill="#fff"/>
+        <circle cx="73.5" cy="60.5" r="1.3" fill="#fff"/>
+        <ellipse cx="60" cy="72" rx="3" ry="2.2" fill="#ff8fab"/>
+        <path d="M60 74c4 6 12 6 16 2" stroke="#e89ab0" fill="none" stroke-width="2" stroke-linecap="round"/>
+        <path d="M60 74c-4 6-12 6-16 2" stroke="#e89ab0" fill="none" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="mascot cinna" title="Perrito de nubes">
+      <svg viewBox="0 0 140 120" class="mascot-svg">
+        <ellipse cx="70" cy="110" rx="30" ry="7" fill="rgba(120,180,220,.2)"/>
+        <ellipse cx="22" cy="58" rx="20" ry="10" fill="#fff"/>
+        <ellipse cx="118" cy="58" rx="20" ry="10" fill="#fff"/>
+        <ellipse cx="70" cy="62" rx="34" ry="30" fill="#fff"/>
+        <circle cx="58" cy="58" r="4" fill="#3a2430"/>
+        <circle cx="82" cy="58" r="4" fill="#3a2430"/>
+        <circle cx="59.4" cy="56.6" r="1.2" fill="#fff"/>
+        <circle cx="83.4" cy="56.6" r="1.2" fill="#fff"/>
+        <ellipse cx="70" cy="68" rx="4" ry="3" fill="#f3c4b0"/>
+        <path d="M66 74c4 4 10 4 14 0" stroke="#f3c4b0" fill="none" stroke-width="2"/>
+        <ellipse cx="48" cy="70" rx="6" ry="4" fill="#ffd6e8"/>
+        <ellipse cx="92" cy="70" rx="6" ry="4" fill="#ffd6e8"/>
+        <path d="M40 40c8-18 20-8 22 2" fill="#fff"/>
+        <path d="M100 40c-8-18-20-8-22 2" fill="#fff"/>
+      </svg>
+    </div>
+  </div>
+
+  <section id="intro" class="intro">
+    <div class="intro-inner">
+      <figure class="love-reel" id="loveReel">
+        <div class="reel-screen" id="reelScreen">
+          <video
+            id="introVideo"
+            poster="./assets/intro-poster.jpg"
+            playsinline
+            preload="metadata"
+            src="./assets/intro.mp4"
+          ></video>
+          <div class="reel-hearts" id="reelHearts" aria-hidden="true"></div>
+          <button type="button" class="reel-hit" id="reelHit" aria-label="Reproducir el video de introducción">
+            <span class="reel-play" id="reelPlay">
+              <span class="reel-play-icon" aria-hidden="true">▶</span>
+              <span class="reel-play-text">Toca para verme</span>
+            </span>
+          </button>
+          <div class="reel-end" id="reelEnd" hidden>
+            <p>Eso era para ti</p>
+            <button type="button" id="replayBtn">Ver de nuevo ♡</button>
+          </div>
+        </div>
+        <figcaption class="reel-caption">Una carta en movimiento · tócala</figcaption>
+        <div class="reel-controls">
+          <input type="range" id="reelSeek" min="0" max="1000" value="0" step="1" aria-label="Avance del video" />
+          <div class="reel-row">
+            <span id="reelTime">0:00</span>
+            <button type="button" class="reel-mute" id="reelMute" aria-label="Silenciar" aria-pressed="false">♪</button>
+          </div>
+        </div>
+      </figure>
+
+      <div class="intro-copy">
+        <p class="kicker">Un universo hecho a mano</p>
+        <h1 class="script">Para Mi Mai</h1>
+        <p class="lead">365 cartas. Un año entero para decirte lo que a veces el miedo no deja decir en voz alta.</p>
+        <p class="lead soft">Mai, mi linda Mai: esto es para ti. Antes de abrir el cielo, hay un video solo para ti: tócalo y mírame.</p>
+        <button class="btn-enter" id="enterBtn" type="button">
+          <span>Abrir el cielo</span>
+          <i></i>
+        </button>
+      </div>
+    </div>
+    <div class="intro-seals" aria-hidden="true">
+      <span>💌</span><span>🎀</span><span>☁️</span><span>🌸</span><span>🤍</span>
+    </div>
+  </section>
+
+  <main id="app" class="app hidden" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-script">Mi Mai</span>
+        <span class="brand-sub">365 cartas · 26 sep 2025 — 25 sep 2026</span>
+      </div>
+      <div class="progress-wrap" title="Cartas leídas">
+        <div class="heart-meter">
+          <div class="heart-fill" id="heartFill"></div>
+        </div>
+        <span id="progressText">0 / 365</span>
+      </div>
+      <div class="top-actions">
+        <button type="button" class="icon-btn" id="todayBtn" title="Carta de hoy">Hoy</button>
+        <button type="button" class="icon-btn" id="soundBtn" title="Sonido" aria-pressed="false">♪</button>
+      </div>
+    </header>
+
+    <section class="hero-day" id="heroDay"></section>
+
+    <nav class="filters" id="filters" aria-label="Tipo de carta"></nav>
+    <nav class="months" id="months" aria-label="Meses"></nav>
+
+    <section class="grid" id="grid" aria-live="polite"></section>
+  </main>
+
+  <div class="letter-layer" id="letterLayer" hidden>
+    <div class="letter-backdrop" data-close></div>
+    <article class="letter-sheet" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+      <button class="close-x" type="button" data-close aria-label="Cerrar">×</button>
+      <div class="wax" aria-hidden="true">M♥</div>
+      <p class="letter-meta" id="letterMeta"></p>
+      <p class="letter-type" id="letterType"></p>
+      <h2 class="letter-title" id="letterTitle"></h2>
+      <div class="letter-body" id="letterBody"></div>
+      <p class="letter-closing" id="letterClosing"></p>
+      <div class="letter-nav">
+        <button type="button" id="prevLetter">← Anterior</button>
+        <button type="button" id="nextLetter">Siguiente →</button>
+      </div>
+    </article>
+  </div>
+
+  <div class="locked-toast" id="lockedToast" hidden>Esta carta todavía viaja por el cielo. Llega el <span></span>.</div>
+
+  <script src="./js/letters.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
