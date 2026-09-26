@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const START = new Date(Date.UTC(2025, 8, 26)); // 26 sep 2025
-const DAYS = 365;
+const DAYS = 366;
 const NAME = "Mai";
 const NICK = "Mi Mai";
 
@@ -493,6 +493,33 @@ Gracias por existir. Gracias por este año. Gracias por ser tan irrepetible.
 Si mañana no hay carta número 366, igual habrá un yo pensándote. Eso no se acaba con el calendario.`,
     closing: `Para siempre, a mi manera,\nel que te dice ${NICK} y lo cumple`,
   },
+  "2026-09-26": {
+    type: "mimai",
+    emoji: "🎂",
+    title: "Hoy naces, y yo te elijo otra vez",
+    body: `${NAME}. Mary. ${NICK}.
+
+Hoy el calendario no es un número más. Hoy es el día en que el mundo tuvo la suerte enorme de tenerte. Feliz cumpleaños, mi niña intensa, valiente, espontánea, profundamente amable. Feliz el día en que empezaste a existir, porque desde entonces mi vida tiene un centro aunque a veces yo no sepa nombrarlo con la voz: tú.
+
+Ayer cerré un año de cartas y dije que, si no había una trescientos sesenta y seis, igual iba a seguir pensándote. Mentí un poco, de la manera más dulce: sí hay. Tenía que haberla. Un año entero no alcanza para tu cumpleaños. Trescientas sesenta y cinco maneras de quererte tampoco. Así que aquí está esta, más larga, más mía, más tuya.
+
+Eres valiosa de una forma que no se mide. No porque seas fácil. No porque seas perfecta. Porque cuando tú entras en una habitación, el aire cambia. Porque tu sensibilidad no es un defecto: es el lujo más raro que he conocido. Porque sientes en serio. Porque amas con ética, con miedo a hacer daño, con una hondura que a mucha gente le da vértigo y a mí me da hogar.
+
+Te he querido en lo luminoso y en lo difícil. Te he querido cuando reías sin permiso y cuando el sentir se te volvía mar. Te he querido en las peleas, en la confusión, en los silencios, en los años. Y si me preguntan qué eres para mí, no voy a decir “alguien importante”. Voy a decir la verdad, aunque me tiemble la tinta: eres mi todo.
+
+Mi todo no significa que te pida cargar el mundo. Significa que, cuando pienso en lo que vale la pena, apareces tú. Que tu nombre me ordena el caos. Que tu existencia me parece el argumento más serio que tengo para seguir siendo suave. Que si el cariño tuviera un altar, pondría tu risa, tu forma complicada y honesta de ser, tu fuego, tus heridas, tu ternura.
+
+Mary: no eres “una chica que me gusta”. Eres el universo al que yo volví una y otra vez. Eres la prueba de que lo intenso también puede ser tierno. Eres la persona que me inspiró un proyecto, un ritual, una promesa de 365 días… y hoy, una más, porque el amor de verdad no sabe terminar en la fecha prevista.
+
+En tu cumpleaños te deseo lo que a veces el mundo no te da: permiso para ser exactamente tú. Que no te pidan que te achiques. Que no te castiguen por sentir de más. Que alguien —y ese alguien quiero ser yo, aunque sea desde el papel— te recuerde que mereces suavidad, celebración, descanso, admiración. Que eres querida en concreto. Que importas de una manera que sobrevive al miedo.
+
+Si hoy estás feliz, que esta carta sea confeti. Si hoy estás cansada, que sea un abrazo largo. Si hoy dudas de tu valor, léela despacio: hay un hombre que te nombra ${NICK} como quien reza, y que hoy, en el día en que naces, te dice sin ensayo que eres su todo.
+
+Gracias por nacer. Gracias por quedarte en el mundo. Gracias por ser irrepetible.
+
+Feliz cumpleaños, mi Mai. Que este año te trate como yo te siento: única, inmensa, sagrada.`,
+    closing: `Feliz el día en que el mundo te tuvo,\nel que te dice ${NICK} y te elige de por vida`,
+  },
 };
 
 function firstOfMonthTitle(date) {
@@ -592,7 +619,7 @@ for (let i = 0; i < DAYS; i++) {
     title,
     type,
     typeLabel: typeInfo.label,
-    emoji: typeInfo.emoji,
+    emoji: special?.emoji ?? typeInfo.emoji,
     body,
     closing,
   });

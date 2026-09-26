@@ -137,7 +137,7 @@
     els.hero.innerHTML = `
       <p>Carta de hoy · ${hoy.humanDate}</p>
       <h2>${hoy.emoji} ${hoy.title}</h2>
-      <p>${hoy.typeLabel} · número ${hoy.id} de 365</p>
+      <p>${hoy.typeLabel} · número ${hoy.id} de ${CARTAS.length}</p>
       <button type="button" class="open-today" data-open="${hoy.id}">${unlocked ? "Abrir la de hoy" : "Todavía viaja"}</button>
     `;
   }
@@ -181,7 +181,7 @@
     }
     state.openId = letter.id;
     saveRead(letter.id);
-    els.meta.textContent = `${letter.humanDate} · carta ${letter.id} / 365`;
+    els.meta.textContent = `${letter.humanDate} · carta ${letter.id} / ${CARTAS.length}`;
     els.type.textContent = `${letter.emoji} ${letter.typeLabel}`;
     els.title.textContent = letter.title;
     els.body.textContent = letter.body;
